@@ -3,7 +3,6 @@ package box
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"net/http"
 )
 
