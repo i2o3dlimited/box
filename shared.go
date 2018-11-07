@@ -26,7 +26,6 @@ func (s *SharedService) GetItem(link, password string) (*http.Response, *SharedI
 	if len(password) > 0 {
 		req.Header.Add("BoxApi", "shared_link_password=\""+password+"\"")
 	}
-	fmt.Println("header:", req.Header.Get("BoxApi"))
 
 	var sharedItem SharedItem
 	resp, err := s.Do(req, &sharedItem)
