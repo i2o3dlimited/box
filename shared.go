@@ -34,8 +34,8 @@ func (s *SharedService) GetItem(link, password string) (*http.Response, *SharedI
 }
 
 type SharedItem struct {
-	file   *File
-	folder *Folder
+	File   *File
+	Folder *Folder
 }
 
 func (s *SharedItem) UnmarshalJSON(data []byte) error {
@@ -50,11 +50,11 @@ func (s *SharedItem) UnmarshalJSON(data []byte) error {
 	}
 
 	if it.Type == "file" {
-		s.file = &File{}
-		return json.Unmarshal(data, s.file)
+		s.File = &File{}
+		return json.Unmarshal(data, s.File)
 	} else if it.Type == "folder" {
-		s.folder = &Folder{}
-		return json.Unmarshal(data, s.folder)
+		s.Folder = &Folder{}
+		return json.Unmarshal(data, s.Folder)
 	}
 	return errors.New("unvalid shared item type, not file or folder")
 }
